@@ -150,6 +150,7 @@
     const sharedConcussionTreeRender=renderAbilityTree;renderAbilityTree=()=>{sharedConcussionTreeRender();const node=document.querySelector('.ability-node.ability-concussion');if(node&&!node.querySelector('.wheel-icon'))node.insertAdjacentHTML('afterbegin','<i class="wheel-icon"></i>')};renderAbilityTree();
     const fifthEncounterFinish=finishCheck;finishCheck=()=>{const previousEncounter=encounter,result=fifthEncounterFinish();if(result&&!training&&previousEncounter===4&&encounter===4)encounter=5;return result};
     const sixthEncounterFinish=finishCheck;finishCheck=()=>{const previousEncounter=encounter,result=sixthEncounterFinish();if(result&&!training&&previousEncounter===5&&encounter===5)encounter=6;return result};
+    const metalDartsVeraduxTarget=useAbility;useAbility=(ability,target,enemyId)=>{if(ability==='metalDarts'&&!veraduxTargetId)lockVeraduxTarget();return metalDartsVeraduxTarget(ability,target,enemyId)};
   </script>
 </body>
 </html>
