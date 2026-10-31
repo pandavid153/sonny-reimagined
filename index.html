@@ -241,7 +241,7 @@
     document.head.insertAdjacentHTML('beforeend','<style>.lost-girl .portrait .lost-girl-art{transform:translateX(-5px) scaleX(-1)!important}.lost-girl.hit .portrait{animation:lost-girl-hit .45s ease-out}@keyframes lost-girl-hit{0%,100%{transform:translateY(0)}35%{transform:translateY(-9px)}70%{transform:translateY(3px)}}</style>');
     document.head.insertAdjacentHTML('beforeend','<style>@keyframes lost-girl-hit{0%,100%{translate:0 0}35%{translate:0 -9px}70%{translate:0 3px}}</style>');
     document.head.insertAdjacentHTML('beforeend','<style>.lost-girl.hit{animation:hit .45s ease-out!important}.lost-girl.hit .portrait{animation:none!important;translate:0 0}</style>');
-    const observedLostGirlCards=setupEnemyCards;setupEnemyCards=()=>{observedLostGirlCards()};
+    const observedLostGirlCards=setupEnemyCards;setupEnemyCards=()=>{observedLostGirlCards();const card=$('lostGirlCard');if(!card||card.dataset.hitObserver)return;card.dataset.hitObserver='true';new MutationObserver(()=>{if(!card.classList.contains('hit')||card.dataset.hitAnimating)return;card.dataset.hitAnimating='true';card.animate([{transform:'translateX(0)'},{transform:'translateX(-9px)',offset:.35},{transform:'translateX(3px)',offset:.7},{transform:'translateX(0)'}],{duration:450,easing:'ease-out'}).finished.finally(()=>delete card.dataset.hitAnimating)}).observe(card,{attributes:true,attributeFilter:['class']})};
   </script>
 </body>
 </html>
