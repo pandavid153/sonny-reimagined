@@ -239,6 +239,7 @@
     const coloredLostGirlRender=render;render=()=>{coloredLostGirlRender();const card=$('lostGirlCard'),art=card?.querySelector('.lost-girl-art');if(!art)return;const rabid=card.classList.contains('rabid'),colors={skin:rabid?'#8b8d92':'#d2aa91',hair:rabid?'#5a5d63':'#5c626c','hair-light':rabid?'#797c82':'#898d96',eye:rabid?'#e43c42':'#78bdec',iris:rabid?'#721d28':'#31556d',dress:rabid?'#3e4858':'#54718c'};for(const [selector,color] of Object.entries(colors))art.querySelectorAll(`.${selector}`).forEach(part=>part.setAttribute('fill',color))};
     document.head.insertAdjacentHTML('beforeend','<style>.lost-girl .portrait{transform:none!important}.lost-girl .portrait .lost-girl-art{transform:scaleX(-1)!important}</style>');const neutralLostGirlCards=setupEnemyCards;setupEnemyCards=()=>{neutralLostGirlCards();const mouth=$('lostGirlCard')?.querySelector('.lost-girl-art path[stroke="#a56f72"]');if(mouth)mouth.setAttribute('d','M75 76L85 76')};
     document.head.insertAdjacentHTML('beforeend','<style>.lost-girl .portrait .lost-girl-art{transform:translateX(-5px) scaleX(-1)!important}.lost-girl.hit .portrait{animation:lost-girl-hit .45s ease-out}@keyframes lost-girl-hit{0%,100%{transform:translateY(0)}35%{transform:translateY(-9px)}70%{transform:translateY(3px)}}</style>');
+    document.head.insertAdjacentHTML('beforeend','<style>@keyframes lost-girl-hit{0%,100%{translate:0 0}35%{translate:0 -9px}70%{translate:0 3px}}</style>');
   </script>
 </body>
 </html>
