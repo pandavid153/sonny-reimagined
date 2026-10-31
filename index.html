@@ -243,6 +243,7 @@
     document.head.insertAdjacentHTML('beforeend','<style>.lost-girl.hit{animation:hit .45s ease-out!important}.lost-girl.hit .portrait{animation:none!important;translate:0 0}</style>');
     const observedLostGirlCards=setupEnemyCards;setupEnemyCards=()=>{observedLostGirlCards();const card=$('lostGirlCard');if(!card||card.dataset.hitObserver)return;card.dataset.hitObserver='true';new MutationObserver(()=>{if(!card.classList.contains('hit'))return;card.style.animation='none';void card.offsetWidth;card.style.animation=''}).observe(card,{attributes:true,attributeFilter:['class']})};
     document.head.insertAdjacentHTML('beforeend','<style>.lost-girl.hit .lost-girl-art{animation:lost-girl-shared-hit .45s ease-out!important}@keyframes lost-girl-shared-hit{0%,100%{translate:0 0}35%{translate:-9px 0}70%{translate:3px 0}}</style>');
+    document.head.insertAdjacentHTML('beforeend','<style>.lost-girl.hit .portrait{animation:none!important}.lost-girl.hit .lost-girl-art{animation:lost-girl-stagger .55s ease-out!important;translate:0 0;rotate:0deg;transform-box:fill-box;transform-origin:center}@keyframes lost-girl-stagger{0%{translate:0 0;rotate:0deg}18%{translate:10px 0;rotate:3deg}40%{translate:-9px 0;rotate:-3deg}100%{translate:0 0;rotate:0deg}}</style>');
   </script>
 </body>
 </html>
