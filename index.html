@@ -313,6 +313,7 @@
     document.head.insertAdjacentHTML('beforeend','<style>.lost-girl.defeated{animation:fighter-death .55s ease-in forwards!important}.lost-girl.defeated .lost-girl-art{animation:none!important}</style>');
     negativeEffects.push('deafeningRoar','roar','concentration');const drainingSlowRestore=useAbility;useAbility=async(ability,target,...args)=>{const slow=ability==='drain'&&target&&(target.vines||target.deafeningRoar||target.roar),originalSpd=slow?.originalSpd,result=await drainingSlowRestore(ability,target,...args);if(slow&&originalSpd!==undefined&&!target.vines&&!target.deafeningRoar&&!target.roar)target.spd=originalSpd;return result};
     document.querySelector('.squad.enemy').addEventListener('click',event=>{const card=event.target.closest('.fighter'),enemyId=card?.id.replace('Card','');if(pendingAbility!=='drain'||!awaitingEnemyTarget||!enemyId||!fighters?.[enemyId]||fighters[enemyId].hp<=0)return;event.stopImmediatePropagation();awaitingTarget=false;awaitingEnemyTarget=false;pendingAbility=null;useAbility('drain',null,enemyId)},true);
+    const scratchingFocusHit=hit;hit=(source,target,multiplier,label,stat='str',evadeChance)=>{const outcome=scratchingFocusHit(source,target,multiplier,label,stat,evadeChance);if(source===fighters?.lostGirl&&label==='Scratching'&&outcome.damage)source.focus=Math.min(source.maxFocus,source.focus+15);return outcome};
   </script>
 </body>
 </html>
