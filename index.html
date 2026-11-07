@@ -324,6 +324,7 @@
     const immediateCharmBattleStart=deferredNissaBattleStart;startBattle=async(...args)=>{if(battleTransitioning||battleEnding)return;battleTransitioning=true;battleFade.classList.add('active','black');await pause(1000);immediateCharmBattleStart(...args);syncForestCharmHealth(true);const nissa=fighters?.forestSpirit,deferShield=!!nissa?.natureShield;if(deferShield){delete nissa.natureShield;nissa.natureShieldUsed=false;nissa.focus=nissa.maxFocus;render()}battleFade.classList.remove('black');await pause(1000);await pause(400);if(deferShield&&fighters?.forestSpirit===nissa){nissa.natureShieldUsed=true;nissa.focus=0;nissa.natureShield={amount:1000,turns:7};$('log').textContent='Forest Spirit Nissa begins with Nature Shield.';render()}battleFade.classList.remove('active');battleTransitioning=false};
     document.head.insertAdjacentHTML('beforeend','<style>.battle-fade{z-index:1000}</style>');$('startTransition').addEventListener('click',event=>{event.stopImmediatePropagation();startBattle();setTimeout(()=>$('titleScreen').classList.remove('open'),1000)},true);
     shopItems.find(item=>item[0]==='wraps')[4].str=3;renderShop();
+    shopItems.find(item=>item[0]==='charm')[2]=116;const ironBlade=shopItems.find(item=>item[0]==='blade');ironBlade[2]=60;ironBlade[4].str=6;zombieArmDrop[3].str=4;renderShop();
   </script>
 </body>
 </html>
