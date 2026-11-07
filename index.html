@@ -325,6 +325,7 @@
     document.head.insertAdjacentHTML('beforeend','<style>.battle-fade{z-index:1000}</style>');$('startTransition').addEventListener('click',event=>{event.stopImmediatePropagation();startBattle();setTimeout(()=>$('titleScreen').classList.remove('open'),1000)},true);
     shopItems.find(item=>item[0]==='wraps')[4].str=3;renderShop();
     shopItems.find(item=>item[0]==='charm')[2]=116;const ironBlade=shopItems.find(item=>item[0]==='blade');ironBlade[2]=60;ironBlade[4].str=6;zombieArmDrop[3].str=4;renderShop();
+    shopItems.find(item=>item[0]==='focus-cell')[4].int=2;const stimulant=shopItems.find(item=>item[0]==='stimulant');stimulant[2]=39;stimulant[4].spd=3;shopItems.find(item=>item[0]==='blade')[2]=57;renderShop();
   </script>
 </body>
 </html>
