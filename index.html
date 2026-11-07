@@ -327,6 +327,7 @@
     shopItems.find(item=>item[0]==='charm')[2]=116;const ironBlade=shopItems.find(item=>item[0]==='blade');ironBlade[2]=60;ironBlade[4].str=6;zombieArmDrop[3].str=4;renderShop();
     shopItems.find(item=>item[0]==='focus-cell')[4].int=2;const stimulant=shopItems.find(item=>item[0]==='stimulant');stimulant[2]=39;stimulant[4].spd=3;shopItems.find(item=>item[0]==='blade')[2]=57;renderShop();
     document.addEventListener('click',event=>{const slot=event.target.closest('[data-save-slot]');if(!slot||savingToSlot||creatingNewGame||selectedDifficulty)return;const number=slot.dataset.saveSlot,existing=localStorage.getItem(`sonnyReimaginedSlot${number}`)||(number==='1'&&localStorage.getItem('sonnyReimagined'));if(existing)return;event.preventDefault();event.stopImmediatePropagation();creatingNewGame=true;showTitleView('titleDifficulty')},true);
+    const continueOnlySaveSlots=renderSaveSlots;renderSaveSlots=()=>{continueOnlySaveSlots();if(creatingNewGame||savingToSlot)return;document.querySelectorAll('[data-save-slot]').forEach(slot=>{const number=slot.dataset.saveSlot,existing=localStorage.getItem(`sonnyReimaginedSlot${number}`)||(number==='1'&&localStorage.getItem('sonnyReimagined'));if(!existing){slot.disabled=true;slot.querySelector('small').textContent='EMPTY'}})};
   </script>
 </body>
 </html>
